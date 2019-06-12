@@ -10,7 +10,7 @@ public class Target extends Element {
         this.board = board;
     }
 
-    void move(int rowShift, int colShift) {
+    public void move(int rowShift, int colShift) {
         row += rowShift;
         col += colShift;
     }

@@ -16,4 +16,9 @@ public class Element {
     public int getCol() {
         return col;
     }
+
+    void move(int rowShift, int colShift) {
+        row += rowShift;
+        col += colShift;
+    }
 }

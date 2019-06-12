@@ -17,7 +17,7 @@ public class Element {
         return col;
     }
 
-    void move(int rowShift, int colShift) {
+    public void move(int rowShift, int colShift) {
         row += rowShift;
         col += colShift;
     }

@@ -16,27 +16,28 @@ public class Target extends Element {
     }
 
     public void moveRandom() {
-        Random gerador = new Random();
+        Random generator = new Random();
         Element element = new Element(row, col);
+
         // Maior e menor valor do sistema (cima | baixo | esquerda | direita)
         int max = 1;
         int min = -1;
+
+        // Gerador aleatorio de (1 | -1)
         // https://stackoverflow.com/questions/20389890/generating-a-random-number-between-1-and-10-java
-        int geradorRow = gerador.nextInt((max - (min)) + 1) + (min);
-        int geradorCol = gerador.nextInt((max - (min)) + 1) + (min);
+        int rowGenerator = generator.nextInt((max - (min)) + 1) + (min);
+        int colGenerator = generator.nextInt((max - (min)) + 1) + (min);
 
-        int nextRandomRow = row + geradorRow;
-        int nextRandomCol = col + geradorCol;
+        // Proximo Movimento
+        int nextRow = row + rowGenerator;
+        int nextCol = col + colGenerator;
 
-        // Checa se objeto esta no final do mapa | parede
-        if (!board.isWall(nextRandomRow, nextRandomCol) &&
-                nextRandomRow > 0 &&
-                nextRandomRow < board.getNumRows() &&
-                nextRandomCol < board.getNumCols() &&
-                nextRandomCol > 0) {
-            move(geradorRow, geradorCol);
+        if (nextRow > 0 &&
+            nextRow < board.getNumRows() &&
+            nextCol > 0 &&
+            nextCol < board.getNumCols() &&
+            !board.isWall(nextRow, nextCol)) {
+                move(rowGenerator, colGenerator);
         }
     }
-
-
 }

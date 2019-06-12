@@ -17,7 +17,6 @@ public class Target extends Element {
 
     public void moveRandom() {
         Random generator = new Random();
-        Element element = new Element(row, col);
 
         // Maior e menor valor do sistema (cima | baixo | esquerda | direita)
         int max = 1;
@@ -33,11 +32,11 @@ public class Target extends Element {
         int nextCol = col + colGenerator;
 
         if (nextRow > 0 &&
-            nextRow < board.getNumRows() &&
-            nextCol > 0 &&
-            nextCol < board.getNumCols() &&
-            !board.isWall(nextRow, nextCol)) {
-                move(rowGenerator, colGenerator);
+                nextRow < board.getNumRows() &&
+                nextCol > 0 &&
+                nextCol < board.getNumCols() &&
+                !board.isWall(nextRow, nextCol)) {
+            move(rowGenerator, colGenerator);
         }
     }
 }
